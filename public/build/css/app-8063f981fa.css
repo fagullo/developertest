@@ -1,0 +1,17 @@
+.product-container .price {
+  border: none;
+  border-radius: 40px 10px;
+  height: 80px;
+  line-height: 80px;
+  color: white;
+  background-color: red;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.5em;
+  display: table-cell;
+  vertical-align: middle; }
+
+.product-container .product-image {
+  text-align: left; }
+
+/*# sourceMappingURL=app.css.map */
