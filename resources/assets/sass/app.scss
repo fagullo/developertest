@@ -1,6 +1,20 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.no-padding {
+  padding: 0px 0px 0px 0px;
+}
+
+.no-padding-left {
+  padding-left: 0px;
+}
+
+.no-padding-right {
+  padding-right: 0px;
+}
+
 .product-container {
+
+  margin-top: 20px;
 
   .price {
     border: none;
