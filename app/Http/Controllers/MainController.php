@@ -12,7 +12,13 @@ class MainController extends Controller
   public function index() {
     $cheapProducts = $this->getProducts("search");
     $expensiveProducts = $this->getProducts("search?sort=price_desc");
-    return view('welcome', compact(['cheapProducts', 'expensiveProducts']));
+    $user = new \App\User();
+    $wishlist = $user->find(1)->wishes;
+    $wishes = array();
+    for ( $i = 0; $i < count($wishlist); $i++) {
+      array_push($wishes, $wishlist[$i]->product_id);
+    }
+    return view('welcome', compact(['cheapProducts', 'expensiveProducts', 'wishes']));
   }
 
   private function getProducts($url) {
@@ -34,9 +40,9 @@ class MainController extends Controller
       $product->name = $names[$i];
       $product->price = $prices[$i];
       $product->properties = $properties[$i];
+      $product->product_id = substr($images[$i], strrpos($images[$i], "/") + 1);
       array_push($products, $product);
     }
-
     return $products;
   }
 

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
   <div class="panel-group col-md-12 no-padding-left no-padding-right" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-info col-md-12 no-padding-left no-padding-right">
       <div class="panel-heading col-md-12 no-padding-left no-padding-right" role="tab" id="headingOne">

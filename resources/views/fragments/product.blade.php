@@ -10,11 +10,22 @@
         </div>
         <div class="col-md-5">
           <div class="col-md-12 col-sm-12 col-xs-12"> {{$product->properties}} </div>
-          <div class="display: table; position: absolute; height: 100%; width: 100%">
-            <div class="price col-md-12 col-sm-12 col-xs-12"> {{$product->price}} </div>
-          </div>
+          <div class="price col-md-12 col-sm-12 col-xs-12"> {{$product->price}} </div>
         </div>
       </div>
+      @if(Auth::check())
+        <div class="panel-footer text-center">
+          <button type="button" class="btn btn-primary" aria-label="Left Align">
+            @if(in_array($product->product_id, $wishes))
+              <span style="margin-right: 15px;">Remove from wish list</span>
+              <span class="glyphicon glyphicon-star" style="color: yellow" aria-hidden="true"></span>
+            @else
+              <span style="margin-right: 15px;">Add to wish list</span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            @endif
+          </button>
+        </div>
+      @endif
     </div>
   </div>
 @endforeach
