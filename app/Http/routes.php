@@ -11,8 +11,55 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', function () {
+    return redirect('/home');
+});
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home/guest', [
+    'middleware' => 'guest',
+    'uses' => 'HomeController@guest',
+]);
+Route::get('/home', [
+    'middleware' => 'auth',
+    'uses' => 'HomeController@index',
+]);
+
+Route::group([
+    'middleware' => 'auth',
+    'prefix' => 'user',
+    'as' => 'user.',
+    ], function () {
+        Route::get('/edit', [
+            'as' => 'edit',
+            'uses' => 'UserController@edit',
+            ]);
+
+        Route::get('/show', [
+            'as' => 'show',
+            'uses' => 'UserController@show',
+            ]);
+
+        Route::post('/update', [
+            'as' => 'update',
+            'uses' => 'UserController@update',
+            ]);
+});
+
+
+Route::group([
+    'middleware' => 'auth',
+    'prefix' => 'product',
+    'as' => 'product.',
+    ], function () {
+        Route::post('add-to-wishlist/{productId}', [
+            'as' => 'add-to-wishlist',
+            'uses' => 'ProductController@addToWishlist',
+            ]);
+
+        Route::post('remove-from-wishlist/{productId}', [
+            'as' => 'remove-from-wishlist',
+            'uses' => 'ProductController@removeFromWishlist',
+            ]);
+    });

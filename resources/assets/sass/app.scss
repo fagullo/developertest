@@ -1,5 +1,7 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$color-info: #bce8f1;
+
 .no-padding {
   padding: 0px 0px 0px 0px;
 }
@@ -35,6 +37,6 @@
   }
 
   .panel-footer {
-    background-color: #d6e9c6;
+    background-color: $color-info;
   }
 }

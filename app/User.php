@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -12,7 +13,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+    'name', 'email', 'password',
     ];
 
     /**
@@ -21,10 +22,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+    'password', 'remember_token',
     ];
 
-    public function wishes() {
-      return $this->hasMany(Wishlist::class)->select('product_id');
+    public function wishes()
+    {
+        return $this->belongsToMany(Product::class, 'wishlist', 'user_id', 'product_id');
+    }
+
+    public function isWished($productId) {
+        $user = Auth::user();
+
+        return $user->wishes->contains($productId);
     }
 }
