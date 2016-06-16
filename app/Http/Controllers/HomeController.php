@@ -2,28 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
+use Auth;
+use App\Product;
 
 class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
+     * Shows the main view of the app.
      *
-     * @return \Illuminate\Http\Response
+     * @return view.
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $wishes = $user->wishes->lists('product_id')->toArray();
+        $cheapProducts = Product::orderBy('price', 'asc')->limit(10)->get();
+        $expensiveProducts = Product::orderBy('price', 'desc')->limit(10)->get();
+
+        return view('products', compact('cheapProducts', 'expensiveProducts', 'wishes'));
+    }
+
+    public function guest()
+    {
+        $cheapProducts = Product::orderBy('price', 'asc')->limit(10)->get();
+        $expensiveProducts = Product::orderBy('price', 'desc')->limit(10)->get();
+
+        return view('products', compact('cheapProducts', 'expensiveProducts'));
     }
 }
