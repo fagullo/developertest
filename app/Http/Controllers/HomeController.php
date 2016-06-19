@@ -30,6 +30,11 @@ class HomeController extends Controller
         return view('products', compact('cheapProducts', 'expensiveProducts', 'wishes'));
     }
 
+    /**
+     * Shows the view for guest users.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function guest()
     {
         $cheapProducts = Product::orderBy('price', 'asc')->limit(10)->get();

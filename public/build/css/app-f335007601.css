@@ -26,4 +26,8 @@
   .product-container .panel-footer {
     background-color: #bce8f1; }
 
+.btn-remove {
+  float: right;
+  margin-left: 10px; }
+
 /*# sourceMappingURL=app.css.map */

@@ -1,4 +1,3 @@
-@foreach($products as $product)
 <div class="col-md-6 col-sm-12 col-xs-12 product-container">
   <div class="panel panel-info">
     <div class="panel-heading">
@@ -21,7 +20,7 @@
 
           <form method="post" action="{{ route('product.remove-from-wishlist', ['productId' => $product->id]) }}">
             <button type="submit" class="btn btn-danger" aria-label="Left Align">
-              <span style="margin-right: 15px;">Remove from wish list</span>
+              <span>Remove from wish list</span>
               <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             </button>
 
@@ -32,8 +31,8 @@
 
           <form method="post" action="{{ route('product.add-to-wishlist', ['productId' => $product->id]) }}">
             <button type="submit" class="btn btn-success" aria-label="Left Align">
-              <span style="margin-right: 15px;">Add to wish list</span>
-              <span class="glyphicon glyphicon-star" style="color: yellow" aria-hidden="true"></span>
+              <span>Add to wish list</span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             </button>
 
             {!! csrf_field() !!}
@@ -45,4 +44,3 @@
     @endif
   </div>
 </div>
-@endforeach

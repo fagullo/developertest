@@ -30,21 +30,21 @@ Route::group([
     'middleware' => 'auth',
     'prefix' => 'user',
     'as' => 'user.',
-    ], function () {
-        Route::get('/edit', [
-            'as' => 'edit',
-            'uses' => 'UserController@edit',
-            ]);
+], function () {
+    Route::get('/edit', [
+        'as' => 'edit',
+        'uses' => 'UserController@edit',
+    ]);
 
-        Route::get('/show', [
-            'as' => 'show',
-            'uses' => 'UserController@show',
-            ]);
+    Route::get('/wishlist', [
+        'as' => 'wishlist',
+        'uses' => 'UserController@wishlist',
+    ]);
 
-        Route::post('/update', [
-            'as' => 'update',
-            'uses' => 'UserController@update',
-            ]);
+    Route::post('/update', [
+        'as' => 'update',
+        'uses' => 'UserController@update',
+    ]);
 });
 
 
@@ -52,14 +52,19 @@ Route::group([
     'middleware' => 'auth',
     'prefix' => 'product',
     'as' => 'product.',
-    ], function () {
-        Route::post('add-to-wishlist/{productId}', [
-            'as' => 'add-to-wishlist',
-            'uses' => 'ProductController@addToWishlist',
-            ]);
+], function () {
+    Route::post('add-to-wishlist/{productId}', [
+        'as' => 'add-to-wishlist',
+        'uses' => 'ProductController@addToWishlist',
+    ]);
 
-        Route::post('remove-from-wishlist/{productId}', [
-            'as' => 'remove-from-wishlist',
-            'uses' => 'ProductController@removeFromWishlist',
-            ]);
-    });
+    Route::post('remove-from-wishlist/{productId}', [
+        'as' => 'remove-from-wishlist',
+        'uses' => 'ProductController@removeFromWishlist',
+    ]);
+
+    Route::get('show/{productId}', [
+        'as' => 'show',
+        'uses' => 'ProductController@show',
+    ]);
+});

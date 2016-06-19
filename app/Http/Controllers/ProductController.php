@@ -26,9 +26,14 @@ class ProductController extends Controller
         if ($user->isWished($productId))  {
             return abort(400, 'Error');
         }
-    
+
         $user->wishes()->attach($productId);
 
         return redirect()->back();
+    }
+
+    public function show($productId) {
+        $product = \App\Product::find($productId);
+        return view('product.show', compact('product'));
     }
 }

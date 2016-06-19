@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        view()->composer('products', 'App\Http\ViewComposers\UserViewComposer');
+        view()->composer(['products', 'product.show'], 'App\Http\ViewComposers\UserViewComposer');
     }
 }
