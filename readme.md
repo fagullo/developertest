@@ -18,10 +18,12 @@ databases:
 
 The folders/map atribute should be the path where the project has been cloned.
 
-3. Go to ~/.homestead/Homestead and run the command vagrant up
-4. If everything goes well the application should be accessible by visiting the URL 'www.developertest.dev' in your favourite browser.
+3. Go to the project base and create the database by running 'php artisan migrate'.
+4. Go to ~/.homestead/Homestead and run the command vagrant up
+5. If everything goes well the application should be accessible by visiting the URL 'www.developertest.dev' in your favourite browser.
 
 #############################
 
 A command has been created to execute the crawler service. For obtaining the data from the web just go to the project home folder and run 'php artisan apply-crawler'. Once the command has been finished the database will be populated and the application will be ready for working.
+
 
