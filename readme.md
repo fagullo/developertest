@@ -1,27 +1,27 @@
-# Laravel PHP Framework
+This project is build under Laravel 5.2 for running it please follow the instructions:
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+The installation of Homestead is required, you can find the instructions in 'https://laravel.com/docs/5.2/homestead'
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+1. Download the project from github 'https://github.com/fagullo/developertest'.
+2. In the file ~/.homestead/Homestead.yaml add the following lines:
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+folders:
+    - map: ~/projects/laravel
+      to: /home/vagrant/projects
 
-## Official Documentation
+sites:
+    - map: www.developertest.dev
+      to: /home/vagrant/projects/developertest/public
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+databases:
+    - developertest
 
-## Contributing
+The folders/map atribute should be the path where the project has been cloned.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+3. Go to ~/.homestead/Homestead and run the command vagrant up
+4. If everything goes well the application should be accessible by visiting the URL 'www.developertest.dev' in your favourite browser.
 
-## Security Vulnerabilities
+#############################
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+A command has been created to execute the crawler service. For obtaining the data from the web just go to the project home folder and run 'php artisan apply-crawler'. Once the command has been finished the database will be populated and the application will be ready for working.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

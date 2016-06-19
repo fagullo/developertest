@@ -1,0 +1,33 @@
+.no-padding {
+  padding: 0px 0px 0px 0px; }
+
+.no-padding-left {
+  padding-left: 0px; }
+
+.no-padding-right {
+  padding-right: 0px; }
+
+.product-container {
+  margin-top: 20px; }
+  .product-container .price {
+    border: none;
+    border-radius: 40px 10px;
+    height: 80px;
+    line-height: 80px;
+    color: white;
+    background-color: red;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle; }
+  .product-container .product-image {
+    text-align: left; }
+  .product-container .panel-footer {
+    background-color: #bce8f1; }
+
+.btn-remove {
+  float: right;
+  margin-left: 10px; }
+
+/*# sourceMappingURL=app.css.map */

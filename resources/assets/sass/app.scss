@@ -1,2 +1,47 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$color-info: #bce8f1;
+
+.no-padding {
+  padding: 0px 0px 0px 0px;
+}
+
+.no-padding-left {
+  padding-left: 0px;
+}
+
+.no-padding-right {
+  padding-right: 0px;
+}
+
+.product-container {
+
+  margin-top: 20px;
+
+  .price {
+    border: none;
+    border-radius: 40px 10px;
+    height: 80px;
+    line-height: 80px;
+    color: white;
+    background-color: rgba(255, 0, 0, 1);
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .product-image {
+    text-align: left;
+  }
+
+  .panel-footer {
+    background-color: $color-info;
+  }
+}
+
+.btn-remove {
+  float: right;
+  margin-left: 10px;
+}
