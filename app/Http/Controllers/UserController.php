@@ -43,7 +43,8 @@ class UserController extends Controller {
     }
 
     /**
-     *
+     * Obtains the wish list of a given user.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function wishlist() {
         $user = Auth::user();
